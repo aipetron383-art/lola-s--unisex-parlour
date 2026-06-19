@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lola's Unisex-Family Salon</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<style>
+
+:root{
+--gold:#c4a06e;
+--gold-dark:#b28b58;
+--cream:#f7f3ef;
+--white:#ffffff;
+--text:#2e2a28;
+--shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:var(--cream);
+color:var(--text);
+overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+font-family:'Playfair Display',serif;
+}
+
+.container{
+width:90%;
+max-width:1300px;
+margin:auto;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:rgba(255,255,255,.96);
+backdrop-filter:blur(12px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 5%;
+z-index:1000;
+box-shadow:0 5px 25px rgba(0,0,0,.05);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+text-decoration:none;
+}
+
+.logo{
+display:flex;
+align-items:center;
+text-decoration:none;
+}
+
+.logo img{
+width:220px;
+height:auto;
+display:block;
+object-fit:contain;
+}
+
+@media(max-width:768px){
+
+.logo img{
+width:150px;
+}
+
+}
+.nav-links{
+display:flex;
+gap:40px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#333;
+font-weight:600;
+font-size:.9rem;
+letter-spacing:1px;
+}
+
+.book-btn{
+background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+padding:13px 28px;
+border-radius:40px;
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+align-items:center;
+gap:60px;
+padding:140px 6% 80px;
+background:var(--cream);
+}
+
+.badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+background:var(--gold);
+padding:12px 25px;
+border-radius:40px;
+color:white;
+font-size:.85rem;
+font-weight:700;
+letter-spacing:1px;
+margin-bottom:30px;
+}
+
+.hero h1{
+font-size:6rem;
+line-height:.95;
+font-weight:700;
+margin-bottom:20px;
+}
+
+.hero h1 span{
+display:block;
+color:var(--gold);
+font-style:italic;
+font-weight:600;
+}
+
+.hero p{
+font-size:1.15rem;
+line-height:1.9;
+max-width:650px;
+color:#6a6663;
+margin-bottom:35px;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:16px 35px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+letter-spacing:.5px;
+display:inline-flex;
+align-items:center;
+gap:10px;
+}
+
+.btn-gold{
+background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+color:white;
+}
+
+.btn-outline{
+border:2px solid var(--gold);
+color:var(--gold);
+}
+
+.hero-image img{
+width:100%;
+height:700px;
+object-fit:cover;
+border-radius:60px 20px 60px 20px;
+box-shadow:var(--shadow);
+}
+
+/* STATS */
+
+.stats{
+padding:30px 0 100px;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.stat-card{
+background:white;
+padding:35px;
+border-radius:25px;
+text-align:center;
+box-shadow:var(--shadow);
+}
+
+.stat-card h3{
+font-size:3rem;
+color:var(--gold);
+}
+
+.stat-card p{
+margin-top:10px;
+}
+
+/* SECTION */
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.section-title p{
+color:#777;
+}
+
+/* SERVICES */
+
+.services{
+padding:100px 0;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.service-card{
+height:420px;
+position:relative;
+overflow:hidden;
+border-radius:30px;
+box-shadow:var(--shadow);
+}
+
+.service-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.6s;
+}
+
+.service-card:hover img{
+transform:scale(1.1);
+}
+
+.overlay{
+position:absolute;
+left:0;
+bottom:0;
+width:100%;
+padding:30px;
+background:linear-gradient(transparent,rgba(0,0,0,.9));
+color:white;
+}
+
+.overlay h3{
+margin-bottom:10px;
+}
+
+/* ABOUT */
+
+.about{
+padding:100px 0;
+}
+
+.about-box{
+background:white;
+padding:60px;
+border-radius:40px;
+box-shadow:var(--shadow);
+text-align:center;
+}
+
+.about-box h2{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.about-box p{
+max-width:900px;
+margin:auto;
+line-height:2;
+color:#666;
+}
+
+/* GALLERY */
+
+.gallery{
+padding:100px 0;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.gallery-grid img{
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:25px;
+box-shadow:var(--shadow);
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+padding:100px 0;
+}
+
+.review-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.review{
+background:white;
+padding:35px;
+border-radius:30px;
+text-align:center;
+box-shadow:var(--shadow);
+}
+
+.stars{
+color:#f7b500;
+font-size:1.2rem;
+margin-bottom:15px;
+}
+
+.review p{
+line-height:1.8;
+color:#666;
+margin-bottom:15px;
+}
+
+/* CONTACT */
+
+.contact{
+padding:100px 0;
+}
+
+.contact-box{
+background:white;
+padding:70px;
+border-radius:40px;
+text-align:center;
+box-shadow:var(--shadow);
+}
+
+.contact-box h2{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.contact-box p{
+line-height:2;
+margin-bottom:30px;
+}
+
+.contact-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+/* FOOTER */
+
+footer{
+background:#1f1c1a;
+color:white;
+padding:40px;
+text-align:center;
+margin-top:80px;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+width:60px;
+height:60px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:white;
+text-decoration:none;
+z-index:999;
+}
+
+/* MOBILE */
+
+@media(max-width:992px){
+
+.nav-links{
+display:none;
+}
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+padding-top:130px;
+}
+
+.hero h1{
+font-size:4rem;
+}
+
+.hero p{
+margin:auto auto 30px;
+}
+
+.hero-buttons{
+justify-content:center;
+}
+
+.hero-image{
+order:-1;
+}
+
+.hero-image img{
+height:450px;
+}
+
+.stats-grid,
+.service-grid,
+.gallery-grid,
+.review-grid{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:3.2rem;
+}
+
+.hero p{
+font-size:1rem;
+}
+
+.stats-grid,
+.service-grid,
+.gallery-grid,
+.review-grid{
+grid-template-columns:1fr;
+}
+
+.logo-text h2{
+font-size:1.6rem;
+}
+
+.logo-circle{
+width:50px;
+height:50px;
+}
+
+.about-box,
+.contact-box{
+padding:35px 25px;
+}
+
+.section-title h2{
+font-size:2.2rem;
+}
+
+}
+.hero{
+    padding:170px 6% 80px;
+}
+@media(max-width:768px){
+
+nav{
+padding:8px 4%;
+}
+
+.logo img{
+height:55px;
+}
+
+.book-btn{
+display:none;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    text-decoration:none;
+}
+
+.logo img{
+    width:90px;
+    height:auto;
+    object-fit:contain;
+}
+
+.logo-text h2{
+    font-family:'Playfair Display',serif;
+    font-size:3rem;
+    font-weight:700;
+    color:#2d2a28;
+    line-height:1;
+    margin:0;
+}
+
+.logo-text span{
+    display:block;
+    margin-top:8px;
+    font-family:'Montserrat',sans-serif;
+    font-size:0.9rem;
+    letter-spacing:4px;
+    color:#c4a06e;
+    text-transform:uppercase;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.logo{
+    gap:10px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.logo-text h2{
+    font-size:2rem;
+}
+
+.logo-text span{
+    font-size:0.65rem;
+    letter-spacing:2px;
+}
+
+}
+
+}
+.map-section{
+    padding:80px 0;
+}
+</style>
+</head>
+<body>
+
+<nav>
+
+<a href="#" class="logo">
+
+    <img src="logo.png" alt="Lola's Salon Logo">
+
+    <div class="logo-text">
+        <h2>Lola's</h2>
+        <span>UNISEX-FAMILY SALOON</span>
+    </div>
+
+</a>
+
+<div class="nav-links">
+<a href="#">HOME</a>
+<a href="#services">SERVICES</a>
+<a href="#gallery">GALLERY</a>
+<a href="#reviews">REVIEWS</a>
+<a href="#contact">CONTACT</a>
+</div>
+
+<a href="https://wa.me/919391217732" class="book-btn">
+Book Now
+</a>
+
+</nav>
+
+<section class="hero">
+
+<div>
+
+<div class="badge">
+<i class="fas fa-crown"></i>
+PREMIUM BEAUTY SERVICES
+</div>
+
+<h1>
+Look Beautiful,
+<span>Feel Confident</span>
+</h1>
+
+<p>
+Lola's offers a complete range of professional beauty services —
+from expert haircuts to luxurious facials, all in a warm,
+welcoming atmosphere.
+</p>
+
+<div class="hero-buttons">
+
+<a href="https://wa.me/919391217732" class="btn btn-gold">
+<i class="fab fa-whatsapp"></i>
+WHATSAPP
+</a>
+
+<a href="tel:9391217732" class="btn btn-outline">
+<i class="fas fa-phone"></i>
+CALL NOW
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+<img src="hero.png">
+</div>
+
+</section>
+
+<section class="stats">
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3>500+</h3>
+<p>Happy Clients</p>
+</div>
+
+<div class="stat-card">
+<h3>5★</h3>
+<p>Customer Rating</p>
+</div>
+
+<div class="stat-card">
+<h3>10+</h3>
+<p>Beauty Experts</p>
+</div>
+
+<div class="stat-card">
+<h3>8+</h3>
+<p>Years Experience</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="services" id="services">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Signature Services</h2>
+<p>Luxury beauty treatments tailored for you</p>
+</div>
+
+<div class="service-grid">
+
+<div class="service-card">
+<img src="haircut.jpg">
+<div class="overlay">
+<h3>Hair Studio</h3>
+<p>Haircuts • Styling • Extensions</p>
+</div>
+</div>
+
+<div class="service-card">
+<img src="makeup.jpg">
+<div class="overlay">
+<h3>Bridal Makeup</h3>
+<p>Wedding • Reception • Events</p>
+</div>
+</div>
+
+<div class="service-card">
+<img src="pedicure.jpg">
+<div class="overlay">
+<h3>Skin Care</h3>
+<p>Facials • Hydra Facial • Glow</p>
+</div>
+</div>
+
+<div class="service-card">
+<img src="waxing.jpg">
+<div class="overlay">
+<h3>Spa & Body Care</h3>
+<p>Massage • Waxing • Pedicure</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="about">
+
+<div class="container">
+
+<div class="about-box">
+
+<h2>Why Choose Lola's?</h2>
+
+<p>
+Experience professional beauty care in a luxurious atmosphere.
+Our expert stylists and beauty specialists deliver personalized
+services designed to enhance your confidence and elegance.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="gallery" id="gallery">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Our Work</h2>
+<p>Beauty transformations by our experts</p>
+</div>
+
+<div class="gallery-grid">
+
+<img src="look1.jpg">
+<img src="look2.jpg">
+<img src="look3.jpg">
+<img src="look4.jpg">
+
+</div>
+
+</div>
+
+</section>
+
+<section class="testimonials" id="reviews">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Client Reviews</h2>
+<p>Trusted by hundreds of happy customers</p>
+</div>
+
+<div class="review-grid">
+
+<div class="review">
+<div class="stars">★★★★★</div>
+<p>Excellent service and wonderful staff. Highly recommended.</p>
+<strong>Priya</strong>
+</div>
+
+<div class="review">
+<div class="stars">★★★★★</div>
+<p>Best salon experience. Professional and luxurious.</p>
+<strong>Neha</strong>
+</div>
+
+<div class="review">
+<div class="stars">★★★★★</div>
+<p>Beautiful atmosphere and outstanding customer service.</p>
+<strong>Rohan</strong>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="contact-box">
+
+<h2>Book Your Appointment</h2>
+
+
+
+<p>
+    <a href="https://maps.app.goo.gl/pVR2dU9d3eJS3s2S8"
+       target="_blank"
+       style="text-decoration:none;color:inherit;">
+
+        Above Dolphin School,<br>
+        Near SFS School Back Gate,<br>
+        NE Layout, Seethammadara,<br>
+        Visakhapatnam, Andhra Pradesh 530013
+
+    </a>
+</p>
+
+</div>
+
+</div>
+
+</section>
+<section class="map-section">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Find Us</h2>
+            <p>Visit our salon today</p>
+        </div>
+
+        <iframe
+            src="https://www.google.com/maps?q=17.7425873,83.3117483&z=15&output=embed"
+            width="100%"
+            height="450"
+            style="border:0;border-radius:30px;"
+            allowfullscreen=""
+            loading="lazy">
+        </iframe>
+
+    </div>
+
+</section>
+<footer>
+<p>© 2026 Lola's Unisex-Family Salon. All Rights Reserved.</p>
+</footer>
+
+<a href="https://wa.me/919391217732" class="whatsapp">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
